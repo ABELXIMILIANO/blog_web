@@ -2,7 +2,10 @@ package com.example.web_proyect.services;
 
 import com.example.web_proyect.dto.PublicationDTO;
 
-public interface PuplicationService {
+import java.util.List;
+
+public interface PublicationService {
 
     public PublicationDTO createPublication(PublicationDTO publicationDTO);
+    public List<PublicationDTO> obtenerTodasLasPublicaciones();
 }

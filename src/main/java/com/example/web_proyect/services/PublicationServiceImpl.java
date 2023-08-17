@@ -3,9 +3,15 @@ package com.example.web_proyect.services;
 import com.example.web_proyect.dto.PublicationDTO;
 import com.example.web_proyect.entities.Publication;
 import com.example.web_proyect.repositories.PublicationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class PublicationServiceImpl  implements PuplicationService{
+import java.util.List;
 
+@Service
+public class PublicationServiceImpl  implements PublicationService {
+
+    @Autowired
     private PublicationRepository publicationRepository;
     @Override
     public PublicationDTO createPublication(PublicationDTO publicationDTO) {
@@ -28,4 +34,25 @@ public class PublicationServiceImpl  implements PuplicationService{
 
         return publicacionRespuesta;
     }
+
+    @Override
+    public List<PublicationDTO> obtenerTodasLasPublicaciones() {
+        List<Publication> publicaciones = publicationRepository.findAll();
+        return null;
+    }
+
+
+
+    //Entidad a DTO
+    private PublicationDTO mapearDTO(Publication publication){
+            PublicationDTO publicationDTO = new PublicationDTO();
+        publicationDTO.setId(publication.getId());
+        publicationDTO.setTitulo(publication.getTitulo());
+        publicationDTO.setDescripcion(publication.getDescription());
+        publicationDTO.setContenido(publication.getContenido());
+
+        return publicationDTO;
+    }
+
+
 }
