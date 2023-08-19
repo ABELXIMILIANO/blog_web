@@ -18,6 +18,7 @@ public class Publication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "titulo",nullable=false)
     private String titulo;
     @Column(name = "desripcion",nullable=false)

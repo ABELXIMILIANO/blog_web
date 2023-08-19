@@ -8,4 +8,8 @@ public interface PublicationService {
 
     public PublicationDTO createPublication(PublicationDTO publicationDTO);
     public List<PublicationDTO> obtenerTodasLasPublicaciones();
+
+    public PublicationDTO obtenerPublicacionPorId(Long id);
+    public  PublicationDTO actualizarPublicacion(PublicationDTO publicationDTO, long id);
+    public void eliminarPublicacion(long id);
 }
